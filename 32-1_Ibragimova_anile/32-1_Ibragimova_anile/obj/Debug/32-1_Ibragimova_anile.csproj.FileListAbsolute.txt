@@ -1,0 +1,10 @@
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\bin\Debug\32-1_Ibragimova_anile.exe.config
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\bin\Debug\32-1_Ibragimova_anile.exe
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\bin\Debug\32-1_Ibragimova_anile.pdb
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\obj\Debug\32-1_Ibragimova_anile.csproj.AssemblyReference.cache
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\obj\Debug\_32_1_Ibragimova_anile.FormMain.resources
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\obj\Debug\_32_1_Ibragimova_anile.Properties.Resources.resources
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\obj\Debug\32-1_Ibragimova_anile.csproj.GenerateResource.cache
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\obj\Debug\32-1_Ibragimova_anile.csproj.CoreCompileInputs.cache
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\obj\Debug\32-1_Ibragimova_anile.exe
+Z:\32-1_Ibragimova_anile\32-1_Ibragimova_anile\obj\Debug\32-1_Ibragimova_anile.pdb
