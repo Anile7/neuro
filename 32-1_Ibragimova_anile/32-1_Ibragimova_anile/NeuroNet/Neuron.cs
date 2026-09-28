@@ -17,8 +17,8 @@ namespace _32_1_Ibragimova_anile.NeuroNet
         // свойства
         private double[] Weights { get => weights; set => weights = value; }
         private double[] Inputs { get => inputs; set => inputs = value; }
-        public double[] Output { get => output; }
-        public double[] Derivative { get => derivative; }
+        public double Output { get => output; }
+        public double Derivative { get => derivative; }
 
         public Neuron(double[] memoryWeights, NeuronType typeNeuron)
         {
@@ -39,8 +39,8 @@ namespace _32_1_Ibragimova_anile.NeuroNet
             {
                 case NeuronType.Hidden:
                     output = Logistic(sum);
-                    derivative = Loistic_Derivativator(sum);
-
+                    derivative = Logistic_Derivator(sum);
+                    break;
 
                 case NeuronType.Output:
                     output = Exp(sum);
@@ -49,5 +49,13 @@ namespace _32_1_Ibragimova_anile.NeuroNet
         }
 
         private double Logistic(double sum)
+        {
+            return 1.0/(1.0+Exp(-sum));
+        }
+        private double Logistic_Derivator(double sum)
+        {
+            double y = Logistic(sum);
+            return y*(1.0-y);
+        }
     }
 }
