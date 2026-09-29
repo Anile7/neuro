@@ -50,12 +50,12 @@ namespace _32_1_Ibragimova_anile.NeuroNet
 
         private double Logistic(double sum)
         {
-            return 1.0/(1.0+Exp(-sum));
+            return 1.0 / (1.0 + Exp(-sum));
         }
         private double Logistic_Derivator(double sum)
         {
             double y = Logistic(sum);
-            return y*(1.0-y);
+            return y * (1.0 - y);
         }
     }
 }

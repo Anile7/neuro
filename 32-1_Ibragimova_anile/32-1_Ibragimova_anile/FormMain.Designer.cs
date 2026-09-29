@@ -255,6 +255,7 @@ namespace _32_1_Ibragimova_anile
             this.SaveTestSample.TabIndex = 18;
             this.SaveTestSample.Text = "Сохр тест";
             this.SaveTestSample.UseVisualStyleBackColor = true;
+            this.SaveTestSample.Click += new System.EventHandler(this.SaveTestSample_Click);
             // 
             // FormMain
             // 
