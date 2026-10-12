@@ -110,9 +110,6 @@ namespace _32_1_Ibragimova_anile.NeuroNet
 
                     break;
                 case MemoryMode.INIT:
-
-
-
                     MessageBox.Show("!!! В Н И М А Н И Е !!!\nФайл "+name_Layer + "_memory_csv"+" синаптических весов\nНЕ НАЙДЕН!!!"+
                         "\nПосле нажатия ОК автоматически проинициализируются веса и создастся отсутствующий файл, "+
                         "нейросеть вернётся к исходному состоянию <<новорождённости>>, и потребуется обучать её ЗАНОВО.", 
@@ -124,16 +121,40 @@ namespace _32_1_Ibragimova_anile.NeuroNet
                     double tmpShift;
                     double[] tmpArr = new double[numofneurons + 1];
                     tmpStrWeights = new string[numofneurons];
-
-                    for (int i=0;i<numofneurons;i++)
+                    
+                    for (int i = 0; i < numofneurons; i++)
                     {
                         for (int j = 0; j < numofprevneurons + 1; j++)
                             tmpArr[j] = 0.02 * random.NextDouble() - 0.01;
+                    
+                        double sum = 0;
+                        for (int j = 0; j < numofprevneurons + 1; j++)
+                            sum += tmpArr[j];
+                        double mean = sum / (numofprevneurons + 1);
+                    
+                        double sumSq = 0;
+                        for (int j = 0; j < numofprevneurons + 1; j++)
+                            sumSq += (tmpArr[j] - mean) * (tmpArr[j] - mean);
+                        double std = Math.Sqrt(sumSq / (numofprevneurons + 1));
+                    
+                        tmpRation = (1.0 / Math.Sqrt(numofprevneurons)) / std;
+                        tmpShift = -mean * tmpRation;
+                    
+                        tmpStr = "";
+                        for (int j = 0; j < numofprevneurons + 1; j++)
+                        {
+                            weights[i, j] = tmpArr[j] * tmpRation + tmpShift;
+                            if (j > 0) tmpStr += delim[0];
+                            tmpStr += weights[i, j].ToString();
+                        }
+                        tmpStrWeights[i] = tmpStr;
                     }
+                    File.WriteAllLines(path, tmpStrWeights);
                     break;
                 default:
                     break;
             }
+            return weights;
         }
     }
 }
