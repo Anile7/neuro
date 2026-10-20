@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using _32_1_Ibragimova_anile.NeuroNet;
+
 
 namespace _32_1_Ibragimova_anile
 {
     public partial class FormMain : Form
     {
         private double[] inputPixels;
+        private Network network;
 
         public FormMain()
         {
             InitializeComponent();
 
             inputPixels = new double[15];
+            network = new Network();
         }
 
         private void Changing_Color_Button(object sender, EventArgs e)
@@ -65,6 +64,14 @@ namespace _32_1_Ibragimova_anile
             tmpStr += "\n";
 
             File.AppendAllText(path, tmpStr);
+        }
+
+
+        private void buttonRecognise_Click(object sender, EventArgs e)
+        {
+            network.ForwardPass(inputPixels);
+            Label_Output.Text = network.Fact.ToList().IndexOf(network.Fact.Max()).ToString();
+            Label_Probability.Text = (100 * network.Fact.Max()).ToString("0.00") + " %";
         }
     }
 }
