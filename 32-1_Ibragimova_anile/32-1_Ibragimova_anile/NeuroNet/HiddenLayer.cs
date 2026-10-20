@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace _32_1_Ibragimova_anile.NeuroNet
 {
-    class HiddenLayer
+    class HiddenLayer : Layer
     {
+        public HiddenLayer(int 
     }
 }
