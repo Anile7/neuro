@@ -157,11 +157,15 @@ namespace _32_1_Ibragimova_anile.NeuroNet
             return weights;
         }
 
-        public double[,] WeightInitialize(MemoryMode m, string path) ???
+        protected double Calc_A(double[] arr)
+        {
+            
+        }
 
-        protected double Calc_   ???
-
-        protected double Calc_Dispers(double[] arr)  ???
+        protected double Calc_Dispers(double[] arr)
+        {
+            
+        }
 
         abstract public void Recogize(Network net, Layer nextLayer);
         abstract public double[] BackwardPass(double[] stuff);            
