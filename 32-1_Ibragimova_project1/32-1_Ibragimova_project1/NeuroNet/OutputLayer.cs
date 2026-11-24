@@ -26,13 +26,13 @@ namespace _32_1_Ibragimova_project1.NeuroNet
         // Обратный проход
         public override double[] BackwardPass(double[] errors)
         {
-            double[] gr_sum = new double[numofneurons];
+            double[] gr_sum = new double[numofprevneurons];
             // Вычисление градиентных сумм выходного слоя
-            for (int j = 0; j < numofneurons; j++)
+            for (int j = 0; j < numofprevneurons; j++)
             {
                 double sum = 0;
-                for (int k = 0; k < numofprevneurons; k++)
-                    sum += neurons[k].Weights[j + 1] * errors[j];
+                for (int i = 0; i < numofneurons; i++)
+                    sum += neurons[i].Weights[j + 1] * errors[i];
                 gr_sum[j] = sum;
             }
 

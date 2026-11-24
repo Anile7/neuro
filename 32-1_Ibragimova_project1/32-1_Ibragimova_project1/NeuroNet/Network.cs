@@ -80,7 +80,7 @@ namespace _32_1_Ibragimova_project1.NeuroNet
 
                     tmp_gsums2 = output_layer.BackwardPass(errors);
                     tmp_gsums1 = hidden_layer2.BackwardPass(tmp_gsums2);
-                    hidden_layer1.BackwardPass(tmp_gsums2);
+                    hidden_layer1.BackwardPass(tmp_gsums1);
                 }
 
                 e_error_avr[k] /= input_layer.Trainset.GetLength(0);
@@ -88,10 +88,16 @@ namespace _32_1_Ibragimova_project1.NeuroNet
 
             input_layer = null;
 
-            hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
-            hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
-            output_layer.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
+            string memoryPath = AppDomain.CurrentDomain.BaseDirectory + "memory\\";
+            hidden_layer1.WeightInitialize(MemoryMode.SET, memoryPath+ "hidden_layer1_memory.csv");
+            hidden_layer2.WeightInitialize(MemoryMode.SET, memoryPath + "hidden_layer2_memory.csv");
+            output_layer.WeightInitialize(MemoryMode.SET, memoryPath + "output_layer_memory.csv");
 
+            /*
+                        hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
+                        hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
+                        output_layer.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
+            */
         }
 
 

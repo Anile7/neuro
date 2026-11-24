@@ -30,10 +30,10 @@ C:\Users\Элина\OneDrive\Documents\Neuronet\32-1_Ibragimova_project1\32-1_Ib
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\bin\Debug\32-1_Ibragimova_project1.exe.config
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\bin\Debug\32-1_Ibragimova_project1.exe
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\bin\Debug\32-1_Ibragimova_project1.pdb
-C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\32-1_Ibragimova_project1.csproj.AssemblyReference.cache
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\_32_1_Ibragimova_project1.FormMain.resources
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\_32_1_Ibragimova_project1.Properties.Resources.resources
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\32-1_Ibragimova_project1.csproj.GenerateResource.cache
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\32-1_Ibragimova_project1.csproj.CoreCompileInputs.cache
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\32-1_Ibragimova_project1.exe
 C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\32-1_Ibragimova_project1.pdb
+C:\Users\Элина\OneDrive\Desktop\Neuronet\32-1_Ibragimova_project1\32-1_Ibragimova_project1\obj\Debug\32-1_Ibragimova_project1.csproj.AssemblyReference.cache

@@ -28,29 +28,29 @@ namespace _32_1_Ibragimova_project1.NeuroNet
         {
             double[] gr_sum = new double[numofprevneurons]; // градиентные суммы
 
-            for (int j = 0; j < numofneurons; j++) 
+            for (int j = 0; j < numofprevneurons; j++) 
             {
                 double sum = 0;
-                for (int k = 0; k < numofprevneurons; k++)
+                for (int i = 0; i < numofneurons; i++)
                 {
-                    sum += neurons[k].Weights[j + 1] * neurons[k].Derivative * gr_sum[k];
+                    sum += neurons[i].Weights[j + 1] * neurons[i].Derivative * gr_sums[i];
                 }
                 gr_sum[j] = sum;
             }
 
             for (int i = 0; i < numofneurons; i++)
             {
-                for (int n=0;n<numofneurons+1; n++)
+                for (int n=0; n<numofprevneurons+1; n++)
                 {
                     double deltaw;
                     if (n == 0)
                     {
-                        deltaw = momentum * lastdeltaweights[i, 0] + learningrate * neurons[i].Derivative * gr_sum[i];
+                        deltaw = momentum * lastdeltaweights[i, 0] + learningrate * neurons[i].Derivative * gr_sums[i];
                     }
 
                     else
                     {
-                        deltaw = momentum * lastdeltaweights[i, n] + learningrate * neurons[i].Inputs[n - 1] * neurons[i].Derivative * gr_sum[i];
+                        deltaw = momentum * lastdeltaweights[i, n] + learningrate * neurons[i].Inputs[n - 1] * neurons[i].Derivative * gr_sums[i];
                     }
 
                     lastdeltaweights[i, n] = deltaw;
