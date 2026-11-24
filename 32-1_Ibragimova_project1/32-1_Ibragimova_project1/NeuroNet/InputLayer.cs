@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace _32_1_Ibragimova_project1.NeuroNet
 {
@@ -14,24 +15,6 @@ namespace _32_1_Ibragimova_project1.NeuroNet
         public double [,] Trainset { get => trainset; }
         public double [,] Testset { get => testset; }
 
-        // Перемешивание строк файла
-        private void Shuffle(string path)
-        {
-            string[] lines = File.ReadAllLines(path);
-            Random rnd = new Random();
-
-            for (int i = lines.Length - 1; i > 0; i--)
-            {
-                int j = rnd.Next(i + 1);
-
-                string temp = lines[i];
-                lines[i] = lines[j];
-                lines[j] = temp;
-            }
-
-            File.WriteAllLines(path, lines);
-        }
-
         public InputLayer(NetworkMode nm)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;  //директория, в которой экзэшник находится
@@ -41,9 +24,6 @@ namespace _32_1_Ibragimova_project1.NeuroNet
             switch (nm)
             {
                 case NetworkMode.Train:
-
-                    Shuffle(path + "train.txt");
-
                     tmpArrStr = File.ReadAllLines(path + "train.txt");
                     trainset = new double[tmpArrStr.Length, 16];
 
@@ -58,7 +38,8 @@ namespace _32_1_Ibragimova_project1.NeuroNet
                     }
                     break;
                 case NetworkMode.Test:
-                    tmpArrStr = File.ReadAllLines(path + "train.txt");
+                    tmpArrStr = File.ReadAllLines(path + "test.txt");
+                    Shuffle(tmpArrStr);
                     testset = new double[tmpArrStr.Length, 16];
 
                     for (int i = 0; i < tmpArrStr.Length; i++)
@@ -72,31 +53,39 @@ namespace _32_1_Ibragimova_project1.NeuroNet
                         }
                     }
                     break;
-                case NetworkMode.Demo:
-                    break;
-                default:
-                    break;
             }
         }
 
-        internal object Shuffling_Array_Rows(double[,] arr)
-        {
-            Random rnd = new Random();
-            int rows = arr.GetLength(0), cols = arr.GetLength(1);
 
-            for (int i = rows - 1; i > 0; i--)
+        private static readonly Random rng = new Random();
+        public void Shuffle(string[] tmpArrStr)
+        {   // Вариант с перемешиванием сразу при получении из файла (сейчас не используется)
+            if (tmpArrStr == null) throw new ArgumentNullException(nameof(tmpArrStr));
+
+            for (int i = tmpArrStr.Length - 1; i > 0; i--)
             {
-                int j = rnd.Next(i + 1);
-                for (int c = 0; c < cols; c++)
+                int j = rng.Next(i + 1);
+                string temp = tmpArrStr[i];
+                tmpArrStr[i] = tmpArrStr[j];
+                tmpArrStr[j] = temp;
+            }
+        }
+        public void Shuffle(double[,] tmpArr)
+        {   // Вариант с перемешиванием при запуске функции тренировки
+            if (tmpArr == null) throw new ArgumentNullException(nameof(tmpArr));
+            int row_length = tmpArr.GetLength(0);
+            int col_length = tmpArr.GetLength(1);
+            for (int i = row_length - 1; i > 0; i--)
+            {
+                int j = rng.Next(i + 1);
+                if (j == i) continue;
+                for (int l = 0; l < col_length; l++)
                 {
-                    double t = arr[i, c];
-                    arr[i, c] = arr[j, c];
-                    arr[j, c] = t;
+                    double temp = tmpArr[i, l];
+                    tmpArr[i, l] = tmpArr[j, l];
+                    tmpArr[j, l] = temp;
                 }
             }
-
-            return arr;
         }
-
     }
 }
