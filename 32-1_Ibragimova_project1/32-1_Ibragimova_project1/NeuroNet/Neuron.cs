@@ -1,4 +1,5 @@
-﻿using static System.Math;
+using System;
+using static System.Math;
 
 namespace _32_1_Ibragimova_project1.NeuroNet
 {
