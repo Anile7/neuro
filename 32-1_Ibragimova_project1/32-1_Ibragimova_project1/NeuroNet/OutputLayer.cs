@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Remoting;
 
 namespace _32_1_Ibragimova_project1.NeuroNet
 {
