@@ -14,12 +14,12 @@ namespace _32_1_Ibragimova_project1
 {
     public partial class FormMain : Form
     {
-        private double[] inputPixels = new double[16];
+        private double[] inputPixel;
         private Network network;
         public FormMain()
         {
             InitializeComponent();
-            inputPixels = new double[15];
+            inputPixel = new double[15];
             network = new Network();
         }
 
