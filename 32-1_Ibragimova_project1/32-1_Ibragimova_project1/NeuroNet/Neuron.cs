@@ -36,8 +36,8 @@ namespace _32_1_Ibragimova_project1.NeuroNet
             switch (type)
             {
                 case NeuronType.Hidden:
-                    output = hyperFunc(sum); //метод в соответствии с инд. заданием
-                    derivative = hyperFun_Derivativator(sum);
+                    output = Logistic(sum); //метод в соответствии с инд. заданием
+                    derivative = Logistic_Derivator(sum);
                     break;
 
                 case NeuronType.Output:
@@ -47,12 +47,12 @@ namespace _32_1_Ibragimova_project1.NeuroNet
             }
         }
 
-        private double hyperFunc(double sum)
+        private double Logistic(double sum)
         {
             return 1.0 / (1.0 + Exp(-sum));
         }
 
-        private double hyperFun_Derivativator(double sum)
+        private double Logistic_Derivator(double sum)
         {
             double s = hyperFunc(sum);
             return s * (1 - s);
