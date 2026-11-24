@@ -14,19 +14,19 @@ namespace _32_1_Ibragimova_project1
 {
     public partial class FormMain : Form
     {
-        private double[] inputPixel;
+        private double[] inputPixels;
         private Network network;
         public FormMain()
         {
             InitializeComponent();
-            inputPixel = new double[15];
+            inputPixels = new double[15];
             network = new Network();
         }
 
 
         private void recognizeButton_Click(object sender, EventArgs e)
         {
-            network.ForwardPass(inputPixels);
+            network.ForwardPass(inputPixel);
 
             labelOutput.Text = network.Fact.ToList().IndexOf(network.Fact.Max()).ToString();
             labelProbability.Text = (100 * network.Fact.Max()).ToString("0.00") + " %";
