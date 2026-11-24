@@ -55,7 +55,7 @@ namespace _32_1_Ibragimova_project1.NeuroNet
 
         private double Logistic_Derivator(double sum)
         {
-            double s = hyperFunc(sum);
+            double s = Logistic(sum);
             return s * (1 - s);
         }
 
