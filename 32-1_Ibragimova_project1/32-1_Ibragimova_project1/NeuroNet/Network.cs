@@ -54,7 +54,7 @@ namespace _32_1_Ibragimova_project1.NeuroNet
             for (int k=0;k<epoches; k++)
             {
                 e_error_avr[k] = 0;
-                object p = input_layer.Shuffling_Array_Rows(input_layer.Trainset);
+                input_layer.Shuffle(input_layer.Trainset);
 
                 for (int i=0; i<input_layer.Trainset.GetLength(0);i++)
                 {
@@ -87,17 +87,14 @@ namespace _32_1_Ibragimova_project1.NeuroNet
             }
 
             input_layer = null;
-
-            string memoryPath = AppDomain.CurrentDomain.BaseDirectory + "memory\\";
+/*
             hidden_layer1.WeightInitialize(MemoryMode.SET, memoryPath+ "hidden_layer1_memory.csv");
             hidden_layer2.WeightInitialize(MemoryMode.SET, memoryPath + "hidden_layer2_memory.csv");
             output_layer.WeightInitialize(MemoryMode.SET, memoryPath + "output_layer_memory.csv");
-
-            /*
-                        hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
-                        hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
-                        output_layer.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
-            */
+*/
+            hidden_layer1.WeightInitialize(MemoryMode.SET, "memory\\" + nameof(hidden_layer1) + "_memory.csv");
+            hidden_layer2.WeightInitialize(MemoryMode.SET, "memory\\" + nameof(hidden_layer2) + "_memory.csv");
+            output_layer.WeightInitialize(MemoryMode.SET, "memory\\" + nameof(output_layer) + "_memory.csv");
         }
 
 
